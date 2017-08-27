@@ -1,0 +1,12 @@
+{
+  "name": "sasakocic/trip-sorter",
+  "description": "Trip Sorter",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/App/",
+      "Tests\\": "tests/Tests/"
+    }
+  }
+}
