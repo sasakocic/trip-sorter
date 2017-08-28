@@ -38,35 +38,11 @@ class BoardingCard
     }
 
     /**
-     * @param string $from
-     *
-     * @return BoardingCard
-     */
-    public function setFrom($from)
-    {
-        $this->from = $from;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getTo(): string
     {
         return $this->to;
-    }
-
-    /**
-     * @param string $to
-     *
-     * @return BoardingCard
-     */
-    public function setTo($to)
-    {
-        $this->to = $to;
-
-        return $this;
     }
 
     /**
@@ -78,18 +54,6 @@ class BoardingCard
     }
 
     /**
-     * @param string $type
-     *
-     * @return BoardingCard
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getNumber(): string
@@ -98,35 +62,11 @@ class BoardingCard
     }
 
     /**
-     * @param string $number
-     *
-     * @return BoardingCard
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getInfo(): string
     {
         return $this->info;
-    }
-
-    /**
-     * @param string $info
-     *
-     * @return BoardingCard
-     */
-    public function setInfo($info)
-    {
-        $this->info = $info;
-
-        return $this;
     }
 
     /**
