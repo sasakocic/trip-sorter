@@ -23,7 +23,7 @@ class TripSorterTest extends TestCase
      */
     public function testDoWithEmpty()
     {
-        $result = TripSorter::do();
+        $result = TripSorter::sort();
         $this->assertSame(['You have arrived at your final destination.'], $result);
     }
 
@@ -33,7 +33,7 @@ class TripSorterTest extends TestCase
     public function testSortEmpty()
     {
         $cards = [];
-        $result = $this->service->setCards($cards)->sort()->getCards();
+        $result = $this->service->setCards($cards)->sortCards()->getCards();
         $this->assertSame([], $result);
     }
 
@@ -46,7 +46,7 @@ class TripSorterTest extends TestCase
             ['from' => 'Madrid', 'to' => 'Barcelona', 'type' => 'train', 'number' => '78A', 'info' => 'Sit in seat 45B.'],
         ];
         $beforeSort = $this->service->setCards($cards)->getCards();
-        $afterSort = $this->service->sort()->getCards();
+        $afterSort = $this->service->sortCards()->getCards();
         $this->assertSame($beforeSort, $afterSort);
     }
 
@@ -67,7 +67,7 @@ class TripSorterTest extends TestCase
             ['from' => 'Gerona Airport', 'to' => 'Stockholm', 'type' => 'flight', 'number' => 'SK455', 'info' => 'Gate 45B, seat 3A. Baggage drop at ticket counter 344.'],
             ['from' => 'Stockholm', 'to' => 'New York JFK', 'type' => 'flight', 'number' => 'SK455', 'info' => 'Gate 22. Baggage will we automatically transferred from your last leg.'],
         ];
-        $result = $this->service->setCards($cards)->sort()->getCards();
+        $result = $this->service->setCards($cards)->sortCards()->getCards();
         $this->assertSame($expected, $result);
     }
 
@@ -88,7 +88,7 @@ class TripSorterTest extends TestCase
             ['from' => 'Gerona Airport', 'to' => 'Stockholm', 'type' => 'flight', 'number' => 'SK455', 'info' => 'Gate 45B, seat 3A. Baggage drop at ticket counter 344.'],
             ['from' => 'Stockholm', 'to' => 'New York JFK', 'type' => 'flight', 'number' => 'SK455', 'info' => 'Gate 22. Baggage will we automatically transferred from your last leg.'],
         ];
-        $result = $this->service->setCards($cards)->sort()->getCards();
+        $result = $this->service->setCards($cards)->sortCards()->getCards();
         $this->assertSame($expected, $result);
     }
 
@@ -109,7 +109,7 @@ class TripSorterTest extends TestCase
             ['from' => 'Gerona Airport', 'to' => 'Stockholm', 'type' => 'flight', 'number' => 'SK455', 'info' => 'Gate 45B, seat 3A. Baggage drop at ticket counter 344.'],
             ['from' => 'Stockholm', 'to' => 'New York JFK', 'type' => 'flight', 'number' => 'SK455', 'info' => 'Gate 22. Baggage will we automatically transferred from your last leg.'],
         ];
-        $result = $this->service->setCards($cards)->sort()->getCards();
+        $result = $this->service->setCards($cards)->sortCards()->getCards();
         $this->assertSame($expected, $result);
     }
 
@@ -128,7 +128,7 @@ class TripSorterTest extends TestCase
             'From Stockholm, take flight SK455 to New York JFK. Gate 22. Baggage will we automatically transferred from your last leg.',
             'You have arrived at your final destination.',
         ];
-        $result = $this->service->setCards($cards)->sort()->output();
+        $result = $this->service->setCards($cards)->sortCards()->output();
         $this->assertSame($expected, $result);
     }
 }

@@ -74,10 +74,10 @@ class TripSorter
      * @static
      * @return array
      */
-    public static function do(array $cards = [])
+    public static function sort(array $cards = [])
     {
         $instance = new self($cards);
-        $instance->sort();
+        $instance->sortCards();
         $result = $instance->output();
 
         return $result;
@@ -86,26 +86,26 @@ class TripSorter
     /**
      * Sorts the boarding cards.
      */
-    public function sort()
+    public function sortCards()
     {
-        $n = 0;
-        $from = [];
-        $to = [];
+        $count = 0;
+        $fromCity = [];
+        $toCity = [];
         foreach ($this->cards as $card) {
-            $to[$card->getTo()] = $n;
-            $from[$card->getFrom()] = $n++;
+            $toCity[$card->getTo()] = $count;
+            $fromCity[$card->getFrom()] = $count++;
         }
-        if (empty($from)) {
+        if (empty($fromCity)) {
             return $this;
         }
-        $diff = array_keys(array_diff_key($from, $to)); // 'Madrid';
+        $diff = array_keys(array_diff_key($fromCity, $toCity));
         if (count($diff) !== 1) {
             throw new \RuntimeException('There should be one starting point');
         }
         $city = $diff[0];
         $sorted = [];
-        while (isset($from[$city])) {
-            $index = $from[$city];
+        while (isset($fromCity[$city])) {
+            $index = $fromCity[$city];
             $sorted[] = $this->cards[$index];
             $city = $this->cards[$index]->getTo(); // Barcelona
         }

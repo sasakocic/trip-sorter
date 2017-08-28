@@ -57,7 +57,7 @@ $cards = [
   ['from' => 'Gerona Airport', 'to' => 'Stockholm', 'type' => 'flight', 'number' => 'SK455', 'seat' => '3A', 'info' => 'Gate 45B, seat 3A. Baggage drop at ticket counter 344.'],
   ['from' => 'Stockholm', 'to' => 'New York JFK', 'type' => 'flight', 'number' => 'SK455', 'seat' => '7B', 'info' => 'Gate 22. Baggage will we automatically transferred from your last leg.'],
 ];
-$result = TripSorter::do($cards);
+$result = TripSorter::sort($cards);
 ```
 
 Result is an array of strings:
