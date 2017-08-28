@@ -16,7 +16,7 @@ install:
   - travis_retry composer require --dev --no-update squizlabs/php_codesniffer
   - travis_retry composer require codeclimate/php-test-reporter --dev
   - travis_retry composer require sensiolabs/security-checker --dev
-  - travis_retry php composer install --prefer-dist --no-interaction
+  - travis_retry composer install --prefer-dist --no-interaction
 
 notifications:
     email: false
