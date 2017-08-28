@@ -23,7 +23,7 @@ notifications:
 
 script:
   - vendor/bin/phpcs --colors -p --standard=PSR2 --encoding=utf-8 -n src/
-  - vendor/bin/phpunit --coverage-text --coverage-clover=build/logs/clover.xml
+  - php phpunit.phar --coverage-text --coverage-clover=build/logs/clover.xml
   - ln -s build/logs/clover.xml coverage.xml
   - vendor/bin/test-reporter
   - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
