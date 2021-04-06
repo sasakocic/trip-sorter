@@ -2,7 +2,7 @@
 
 Contributions are welcome, and are accepted via pull requests. Please review these guidelines before submitting any pull requests.
 
-We follow [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) as described [here](http://www.php-fig.org/psr/psr-2/).
+We follow [PSR-12](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-12-extended-coding-style-guide.md) as described [here](https://www.php-fig.org/psr/psr-12/).
 
 ## Guidelines
 
