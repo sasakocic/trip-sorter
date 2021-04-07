@@ -1,7 +1,7 @@
 # Trip Sorter
 
 [![Build Status](https://travis-ci.org/sasakocic/trip-sorter.svg)](https://travis-ci.org/sasakocic/trip-sorter)
-[![Code Style Status](https://github.styleci.io/repos/101542570/shield?branch=master](https://styleci.io/repos/101542570)
+[![Code Style Status](https://github.styleci.io/repos/101542570/shield?branch=master)](https://styleci.io/repos/101542570)
 [![CodeCov](https://img.shields.io/codecov/c/github/sasakocic/trip-sorter.svg)](https://codecov.io/gh/sasakocic/trip-sorter)
 [![CodeClimate](https://api.codeclimate.com/v1/badges/024ca63cc345a23bf71d/maintainability.svg)](https://codeclimate.com/github/sasakocic/trip-sorter)
 [![Issue Count](https://codeclimate.com/github/sasakocic/trip-sorter/badges/issue_count.svg)](https://codeclimate.com/github/sasakocic/trip-sorter)
