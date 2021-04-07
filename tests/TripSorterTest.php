@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Test;
 
 use PHPUnit\Framework\TestCase;
 use App\TripSorter;
@@ -13,7 +13,7 @@ class TripSorterTest extends TestCase
     /**
      * Setup service.
      */
-    public function setUp()
+    final public function setUp(): void
     {
         $this->service = new TripSorter();
     }
@@ -21,7 +21,7 @@ class TripSorterTest extends TestCase
     /**
      * Test do method.
      */
-    public function testDoWithEmpty()
+    final public function testDoWithEmpty(): void
     {
         $result = TripSorter::sort();
         $this->assertSame(['You have arrived at your final destination.'], $result);
@@ -30,7 +30,7 @@ class TripSorterTest extends TestCase
     /**
      * Test sorting no cards.
      */
-    public function testSortEmpty()
+    final public function testSortEmpty(): void
     {
         $cards = [];
         $result = $this->service->setCards($cards)->sortCards()->getCards();
@@ -40,7 +40,7 @@ class TripSorterTest extends TestCase
     /**
      * Test with only one card.
      */
-    public function testSortingOneCard()
+    final public function testSortingOneCard(): void
     {
         $cards = [
             ['from' => 'Madrid', 'to' => 'Barcelona', 'type' => 'train', 'number' => '78A', 'info' => 'Sit in seat 45B.'],
@@ -53,7 +53,7 @@ class TripSorterTest extends TestCase
     /**
      * Test alread sorted cards.
      */
-    public function testSorted()
+    final public function testSorted(): void
     {
         $cards = [
             ['from' => 'Madrid', 'to' => 'Barcelona', 'type' => 'train', 'number' => '78A', 'info' => 'Sit in seat 45B.'],
@@ -109,6 +109,7 @@ class TripSorterTest extends TestCase
             ['from' => 'Gerona Airport', 'to' => 'Stockholm', 'type' => 'flight', 'number' => 'SK455', 'info' => 'Gate 45B, seat 3A. Baggage drop at ticket counter 344.'],
             ['from' => 'Stockholm', 'to' => 'New York JFK', 'type' => 'flight', 'number' => 'SK455', 'info' => 'Gate 22. Baggage will we automatically transferred from your last leg.'],
         ];
+        $this->expectExceptionMessage('There should be one starting point');
         $result = $this->service->setCards($cards)->sortCards()->getCards();
         $this->assertSame($expected, $result);
     }
