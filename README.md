@@ -28,7 +28,7 @@ Use PHP-doc to document the input and output your API accepts / returns.
 
 ## Assumptions
 
-- Since the result is only one list, I assume that input receives boarding cards for just one particular trip and we just need to sort them.
+- Since the result is only one list, I assume that input receives boarding cards for just one particular trip, and we just need to sort them.
 - To cover all variations of output without introducing artificial intelligence, I will assume that cards have `Sit in seat 45B.` or `No seat assignment.` written on them. Having a field seat would be considered otherwise.
 
 ## Installation
