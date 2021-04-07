@@ -49,3 +49,10 @@ jobs:
         env:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Send report to Code Climate
+        id: code-climate-report
+        run: vendor/bin/test-reporter --coverage-report=coverage.xml
+        env:
+          DEFAULT_BRANCH: master
+          CODECLIMATE_REPO_TOKEN: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
