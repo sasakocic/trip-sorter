@@ -72,6 +72,7 @@ class TripSorter
      * @param array $cards
      *
      * @static
+     *
      * @return array
      */
     public static function sort(array $cards = [])
@@ -124,17 +125,17 @@ class TripSorter
         $output = [];
         foreach ($this->cards as $card) {
             if ($card->getType() === 'flight') {
-                $output[] = 'From ' . $card->getFrom()
-                    . ', take ' . $card->getType()
-                    . ' ' . $card->getNumber()
-                    . ' to ' . $card->getTo()
-                    . '. ' . $card->getInfo();
+                $output[] = 'From '.$card->getFrom()
+                    .', take '.$card->getType()
+                    .' '.$card->getNumber()
+                    .' to '.$card->getTo()
+                    .'. '.$card->getInfo();
             } else {
-                $output[] = 'Take ' . $card->getType()
-                    . ' ' . $card->getNumber()
-                    . ' from ' . $card->getFrom()
-                    . ' to ' . $card->getTo()
-                    . '. ' . $card->getInfo();
+                $output[] = 'Take '.$card->getType()
+                    .' '.$card->getNumber()
+                    .' from '.$card->getFrom()
+                    .' to '.$card->getTo()
+                    .'. '.$card->getInfo();
             }
         }
         $output[] = 'You have arrived at your final destination.';
