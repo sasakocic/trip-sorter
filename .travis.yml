@@ -23,11 +23,10 @@ notifications:
 
 script:
   - vendor/bin/phpcs --colors -p --standard=PSR2 --encoding=utf-8 -n src/
-  - php phpunit.phar --coverage-text --coverage-clover=build/logs/clover.xml
-  - ln -s build/logs/clover.xml coverage.xml
-  - vendor/bin/test-reporter
+  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.xml
+  - vendor/bin/test-reporter --coverage-report=coverage.xml
   - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.xml
