@@ -49,6 +49,7 @@ jobs:
         env:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          XDEBUG_MODE: coverage
 
       - name: Send report to Code Climate
         id: code-climate-report
