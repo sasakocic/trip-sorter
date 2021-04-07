@@ -72,6 +72,7 @@ class TripSorter
      * @param array $cards
      *
      * @static
+     *
      * @return array
      */
     public static function sort(array $cards = [])
