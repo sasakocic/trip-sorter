@@ -43,7 +43,7 @@ composer install
 1. The tests can be executed by running this command from the root directory:
 
 ```bash
-$ php phpunit.phar
+$ composer run tests
 ```
 
 ## Usage
