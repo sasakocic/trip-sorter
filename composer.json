@@ -16,10 +16,10 @@
     "phpunit/phpunit": "^9.5"
   },
   "scripts": {
-    "tests": "vendor/bin/phpunit tests  --coverage-text --coverage-clover=coverage.xml --colors always --testdox --no-interaction",
-    "check": "vendor/bin/phpcs --standard=PSR12 -s  --colors src",
+    "tests": "vendor/bin/phpunit tests  --coverage-text --coverage-clover=coverage.xml --colors always --testdox --no-interaction --verbose",
+    "check": "vendor/bin/phpcs --standard=PSR12 -s --colors src",
     "fix": "vendor/bin/phpcbf --standard=PSR12 src",
-    "coverage": "vendor/bin/codecept run --coverage --coverage-xml --coverage-html --no-interaction --coverage-phpunit"
+    "coverage": "vendor/bin/phpunit tests --coverage-text --coverage-clover=coverage.xml --coverage-html output --colors always --testdox --no-interaction --verbose"
   },
   "autoload": {
     "psr-4": {

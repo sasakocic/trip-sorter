@@ -1,3 +1,5 @@
 .gitignore
 .idea/
 vendor/
+coverage.xml
+.phpunit.result.cache

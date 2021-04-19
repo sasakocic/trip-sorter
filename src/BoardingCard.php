@@ -30,6 +30,22 @@ class BoardingCard
     }
 
     /**
+     * Convert to array.
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'from' => $this->getFrom(),
+            'to' => $this->getTo(),
+            'type' => $this->getType(),
+            'number' => $this->getNumber(),
+            'info' => $this->getInfo(),
+        ];
+    }
+
+    /**
      * @return string
      */
     public function getFrom(): string
@@ -67,21 +83,5 @@ class BoardingCard
     public function getInfo(): string
     {
         return $this->info;
-    }
-
-    /**
-     * Convert to array.
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'from' => $this->getFrom(),
-            'to' => $this->getTo(),
-            'type' => $this->getType(),
-            'number' => $this->getNumber(),
-            'info' => $this->getInfo(),
-        ];
     }
 }
