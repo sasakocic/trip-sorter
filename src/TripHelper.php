@@ -3,13 +3,13 @@
 namespace App;
 
 /**
- * Class TripHelper
- * @package App
+ * Class TripHelper.
  */
 class TripHelper
 {
     /**
      * @param array $cards
+     *
      * @return BoardingCard[]
      */
     public static function toBoardingCards(array $cards): array
@@ -24,6 +24,7 @@ class TripHelper
 
     /**
      * @param BoardingCard[] $cards
+     *
      * @return array
      */
     public static function toArray(array $cards): array

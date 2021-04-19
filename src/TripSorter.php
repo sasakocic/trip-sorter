@@ -26,6 +26,7 @@ class TripSorter
      * ];
      *
      * @param BoardingCard[] $cards
+     *
      * @return BoardingCard[]
      */
     public function sort(array $cards = []): array
@@ -34,7 +35,7 @@ class TripSorter
         $fromCity = [];
         $toCity = [];
         foreach ($cards as $card) {
-               $toCity[$card->getTo()] = $count;
+            $toCity[$card->getTo()] = $count;
             $fromCity[$card->getFrom()] = $count++;
         }
         if (empty($fromCity)) {
