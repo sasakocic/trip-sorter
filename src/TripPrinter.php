@@ -6,6 +6,7 @@ class TripPrinter
 {
     /**
      * @param BoardingCard[] $cards
+     *
      * @return array
      */
     public function __invoke(array $cards): array
