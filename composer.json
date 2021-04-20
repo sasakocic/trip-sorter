@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "App\\": "src/",
+      "Skocic\\TripSorter\\": "src/",
       "Test\\": "tests/"
     }
   }

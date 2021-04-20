@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Skocic\TripSorter;
 
 class BoardingCard
 {

@@ -2,9 +2,9 @@
 
 namespace Test;
 
-use App\TripHelper;
-use App\TripPrinter;
-use App\TripSorter;
+use Skocic\TripSorter\TripHelper;
+use Skocic\TripSorter\TripPrinter;
+use Skocic\TripSorter\TripSorter;
 use PHPUnit\Framework\TestCase;
 
 class TripPrinterTest extends TestCase
