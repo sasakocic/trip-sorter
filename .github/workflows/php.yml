@@ -12,16 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Prepare PHP Environment
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@v2.30.0
         with:
-          php-version: '7.4'
+          php-version: '8.3'
           extensions: mysql, apcu, mbstring, xml, json, soap, intl, curl, gd, gmp, gettext, zip
-          ini-values: phar.readonly=0, pcov.directory=.
-          coverage: pcov
+          ini-values: phar.readonly=0
+          coverage: xdebug
           tools: php-cs-fixer, phpunit, codeception, composer
+
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Validate composer.json and composer.lock
         run: composer validate
@@ -29,10 +30,10 @@ jobs:
       - name: Get Composer Cache Directory
         id: composer-cache
         run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - name: Cache Composer packages
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -41,19 +42,11 @@ jobs:
 
       - name: Composer install
         id: composer-install
-        run: composer install
+        run: composer install --no-interaction --prefer-dist
 
-      - name: Run tests
+      - name: Run tests with coverage
         id: run-tests
         run: composer run tests
         env:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          XDEBUG_MODE: coverage
-
-      - name: Send report to Code Climate
-        id: code-climate-report
-        run: vendor/bin/test-reporter --coverage-report=coverage.xml
-        env:
-          DEFAULT_BRANCH: master
-          CODECLIMATE_REPO_TOKEN: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
